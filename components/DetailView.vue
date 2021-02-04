@@ -1,6 +1,10 @@
 <template>
-    <div>
-        detailView
+    <div v-if="pkmnDataExists()">
+        <img :src="this.pkmnData.sprites.front_default" alt="">
+        {{ this.pkmnData.species.name }}
+    </div>
+    <div v-else>
+        nothing yet
     </div>
 </template>
 
@@ -8,7 +12,7 @@
 export default {
     data () {
         return {
-            pkmnData: []
+            pkmnData: Object
         }
     },
     methods: {
@@ -19,6 +23,13 @@ export default {
                 .then(response => {
                     this.pkmnData = response;
                 })
+        },
+        pkmnDataExists() {
+            if (Object.keys(this.pkmnData).length != 0) {
+                return true
+            } else {
+                return false
+            }
         }
     },
     mounted() {

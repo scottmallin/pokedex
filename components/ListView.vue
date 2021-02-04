@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="list-view">
         <ul>
             <li :key="'pkmn_' + index" v-for="(pkmn, index) in pkmnList">
                 <button @click="getPkmnData(pkmn.name)">
@@ -43,3 +43,7 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+    @import "~/assets/scss/list-view";
+</style>

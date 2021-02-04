@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="user-view">
     <ListView />
     <DetailView />
   </div>

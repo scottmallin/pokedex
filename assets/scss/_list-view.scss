@@ -1,0 +1,14 @@
+.list-view {
+    @apply h-screen;
+    @apply overflow-scroll;
+
+    ul li {
+        @apply border-b-2;
+
+        button {
+            @apply py-3;
+            @apply px-2;
+            @apply w-full;
+        }
+    }
+}

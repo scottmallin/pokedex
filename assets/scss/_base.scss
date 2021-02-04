@@ -1,0 +1,16 @@
+.user-view {
+    @apply h-screen;
+    
+    display: grid;
+    grid-template-columns: 0.4fr 1.6fr;
+    grid-template-rows: 0.4fr 1.6fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        "list header"
+        "list info";
+}
+
+.list-view {
+    grid-area: list;
+}
+
