@@ -6,8 +6,8 @@
                     {{ pkmn.name }}
                 </button>
             </li>
+            <li><button @click="getMorePkmn()">Get more</button></li>
         </ul>
-        <button @click="getMorePkmn()">Get more</button>
     </div>
 </template>
 
@@ -38,7 +38,7 @@ export default {
     },
     mounted() {
         this.getPkmn()
-        this.getPkmnData()
+        // this.getPkmnData()
         console.log('data', this.PkmnList)
     }
 }

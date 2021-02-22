@@ -1,0 +1,48 @@
+.detail-view {
+    @apply flex;
+    @apply items-center;
+
+    min-height: 100vh;
+    padding: 0 200px;
+    transition: 0.2s background-color;
+
+    &__header {
+        @apply flex;
+        @apply items-center;
+    }
+
+    &__header-image {
+        @apply relative;
+
+        margin-right: 50px;
+
+        &:before {
+            content: '';
+            @apply absolute;
+            @apply top-0;
+            @apply left-0;
+            @apply w-full;
+            @apply h-full;
+            @apply rounded-full;
+
+            background-color: rgba(#fafafa, 0.5);
+            z-index: 0;
+        }
+
+        img {
+            @apply relative;
+
+            max-height: 250px;
+            width: auto;
+            z-index: 1;
+        }
+    }
+
+    &.type-bug { background-color: #9fd356;}
+    &.type-water { background-color: #00A7E1; }
+    &.type-fire { background-color: #FA824C; }
+    &.type-grass { background-color: #6EEB83;}
+    &.type-normal {background-color: #FAFFFD;}
+    &.type-steel {background-color: #8D8D92;}
+    &.type-fighting {background-color: #5A0002;}
+}

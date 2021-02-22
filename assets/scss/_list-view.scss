@@ -1,14 +1,36 @@
 .list-view {
     @apply h-screen;
-    @apply overflow-scroll;
+    @apply flex;
+    @apply flex-col;
+    @apply justify-center;
+    @apply relative;
 
-    ul li {
-        @apply border-b-2;
+    background-color: #fafafa;
+    padding: 0 0 0 50px;
 
-        button {
-            @apply py-3;
-            @apply px-2;
-            @apply w-full;
+    ul {
+        height: 60vh;
+        overflow-y: scroll;
+
+        li {
+            @apply border-b-2;
+    
+            button {
+                @apply py-3;
+                @apply px-2;
+                @apply w-full;
+            }
         }
+    } 
+
+    &:after {
+        content: '';
+        background-image: url('~assets/wave.svg');
+        left: 100%;
+        width: 200px;
+        background-size: 200px 100%;
+
+        @apply absolute;
+        @apply h-full;
     }
 }

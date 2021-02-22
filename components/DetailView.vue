@@ -1,18 +1,26 @@
 <template>
-    <div v-if="pkmnDataExists()">
-        <img :src="this.pkmnData.sprites.front_default" alt="">
-        {{ this.pkmnData.species.name }}
-    </div>
-    <div v-else>
-        nothing yet
-    </div>
+    <section class="detail-view" :class="this.pkmnType.length > 0 ? 'type-' + this.pkmnType : ''">
+        <div v-if="pkmnDataExists()">
+            <header class="detail-view__header">
+                <div class="detail-view__header-image">
+                    <img :src="this.pkmnData.sprites.other['official-artwork']['front_default']" :alt=this.pkmnData.species.name>
+                </div>
+                <h3>#{{ this.pkmnData.id }} {{ this.pkmnData.species.name }}</h3>
+            </header>
+            
+        </div>
+        <div v-else>
+            nothing yet
+        </div>
+    </section>
 </template>
 
 <script>
 export default {
     data () {
         return {
-            pkmnData: Object
+            pkmnData: Object,
+            pkmnType: ''
         }
     },
     methods: {
@@ -22,6 +30,7 @@ export default {
             this.$axios.$get(`https://pokeapi.co/api/v2/pokemon/${ name }`)
                 .then(response => {
                     this.pkmnData = response;
+                    this.pkmnType = response.types[0].type.name;
                 })
         },
         pkmnDataExists() {
@@ -39,3 +48,7 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+    @import "~/assets/scss/detail-view";
+</style>
